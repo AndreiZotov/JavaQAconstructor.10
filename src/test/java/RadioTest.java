@@ -256,6 +256,7 @@ public class RadioTest {
         int expected = 100;
         Assertions.assertEquals(actual, expected);
     }
+
     @Test
     void increaseVolumeLowLimit() {
         Radio radio = new Radio();
@@ -266,6 +267,7 @@ public class RadioTest {
         int expected = 1;
         Assertions.assertEquals(actual, expected);
     }
+
     @Test
     void decreaseVolumeInLimit() {
         Radio radio = new Radio();
@@ -298,6 +300,7 @@ public class RadioTest {
         int expected = 0;
         Assertions.assertEquals(actual, expected);
     }
+
     @Test
     void decreaseVolumeUpLimit() {
         Radio radio = new Radio();
@@ -309,4 +312,159 @@ public class RadioTest {
         Assertions.assertEquals(actual, expected);
     }
 
+    @Test
+    void setStationConstNewInLimit() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentStation(15);
+
+        int actual = radio.getCurrentStation();
+        int expected = 15;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void setStationConstNewInLimitZero() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentStation(0);
+
+        int actual = radio.getCurrentStation();
+        int expected = 0;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void setStationConstNewUpLimit() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentStation(30);
+
+        int actual = radio.getCurrentStation();
+        int expected = 0;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void setStationConstNewUpperLimit() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentStation(31);
+
+        int actual = radio.getCurrentStation();
+        int expected = 0;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void setStationConstNewUnderHiLimit() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentStation(29);
+
+        int actual = radio.getCurrentStation();
+        int expected = 29;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void setStationConstNewUnderLowLimit() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentStation(-1);
+
+        int actual = radio.getCurrentStation();
+        int expected = 0;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void nextRadioConstStationInLimit() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(27);
+        radio.next();
+
+        int actual = radio.getCurrentStation();
+        int expected = 28;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void nextRadioConstStationInLimitBorder() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(28);
+        radio.next();
+
+        int actual = radio.getCurrentStation();
+        int expected = 29;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void nextRadioConstStationOverBorder() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+        radio.next();
+
+        int actual = radio.getCurrentStation();
+        int expected = 0;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void nextRadioConstStationLowBound() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(0);
+        radio.next();
+
+        int actual = radio.getCurrentStation();
+        int expected = 1;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void prevRadioConstStationInLimit() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(2);
+        radio.prev();
+
+        int actual = radio.getCurrentStation();
+        int expected = 1;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void prevRadioConstStationLowBound() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(1);
+        radio.prev();
+
+        int actual = radio.getCurrentStation();
+        int expected = 0;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void prevRadioConstStationOverBorder() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(0);
+        radio.prev();
+
+        int actual = radio.getCurrentStation();
+        int expected = 29;
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void prevRadioConstStationInLimitOverBorder() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+        radio.prev();
+
+        int actual = radio.getCurrentStation();
+        int expected = 28;
+        Assertions.assertEquals(actual, expected);
+    }
+
 }
+
