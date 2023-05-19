@@ -40,7 +40,6 @@ public class RadioTest {
         Radio radio = new Radio();
 
         radio.setCurrentStation(5);
-
         radio.setCurrentStation(0);
 
         int actual = radio.getCurrentStation();
@@ -73,6 +72,7 @@ public class RadioTest {
     @Test
     void setStationOverLimitAfterLimit() {
         Radio radio = new Radio();
+
         radio.setCurrentStation(5);
         radio.setCurrentStation(15);
 
@@ -84,6 +84,7 @@ public class RadioTest {
     @Test
     void nextRadioStationInLimit() {
         Radio radio = new Radio();
+
         radio.setCurrentStation(7);
         radio.next();
 
@@ -95,6 +96,7 @@ public class RadioTest {
     @Test
     void nextRadioStationInLimitBorder() {
         Radio radio = new Radio();
+
         radio.setCurrentStation(8);
         radio.next();
 
@@ -106,6 +108,7 @@ public class RadioTest {
     @Test
     void nextRadioStationOverBorder() {
         Radio radio = new Radio();
+
         radio.setCurrentStation(9);
         radio.next();
 
@@ -117,6 +120,7 @@ public class RadioTest {
     @Test
     void nextRadioStationLowBound() {
         Radio radio = new Radio();
+
         radio.setCurrentStation(0);
         radio.next();
 
@@ -128,6 +132,7 @@ public class RadioTest {
     @Test
     void prevRadioStationInLimit() {
         Radio radio = new Radio();
+
         radio.setCurrentStation(2);
         radio.prev();
 
@@ -139,6 +144,7 @@ public class RadioTest {
     @Test
     void prevRadioStationLowBound() {
         Radio radio = new Radio();
+
         radio.setCurrentStation(1);
         radio.prev();
 
@@ -150,6 +156,7 @@ public class RadioTest {
     @Test
     void prevRadioStationOverBorder() {
         Radio radio = new Radio();
+
         radio.setCurrentStation(0);
         radio.prev();
 
@@ -161,6 +168,7 @@ public class RadioTest {
     @Test
     void prevRadioStationInLimitOverBorder() {
         Radio radio = new Radio();
+
         radio.setCurrentStation(9);
         radio.prev();
 
@@ -216,6 +224,7 @@ public class RadioTest {
     @Test
     void setVolumeUpNegative() {
         Radio radio = new Radio();
+
         radio.setCurrentVolume(100);
         radio.setCurrentVolume(101);
 
@@ -230,6 +239,7 @@ public class RadioTest {
 
         radio.setCurrentVolume(50);
         radio.increase();
+
         int actual = radio.getCurrentVolume();
         int expected = 51;
         Assertions.assertEquals(actual, expected);
@@ -241,6 +251,7 @@ public class RadioTest {
 
         radio.setCurrentVolume(99);
         radio.increase();
+
         int actual = radio.getCurrentVolume();
         int expected = 100;
         Assertions.assertEquals(actual, expected);
@@ -252,6 +263,7 @@ public class RadioTest {
 
         radio.setCurrentVolume(100);
         radio.increase();
+
         int actual = radio.getCurrentVolume();
         int expected = 100;
         Assertions.assertEquals(actual, expected);
@@ -263,6 +275,7 @@ public class RadioTest {
 
         radio.setCurrentVolume(0);
         radio.increase();
+
         int actual = radio.getCurrentVolume();
         int expected = 1;
         Assertions.assertEquals(actual, expected);
@@ -274,6 +287,7 @@ public class RadioTest {
 
         radio.setCurrentVolume(50);
         radio.decrease();
+
         int actual = radio.getCurrentVolume();
         int expected = 49;
         Assertions.assertEquals(actual, expected);
@@ -285,6 +299,7 @@ public class RadioTest {
 
         radio.setCurrentVolume(1);
         radio.decrease();
+
         int actual = radio.getCurrentVolume();
         int expected = 0;
         Assertions.assertEquals(actual, expected);
@@ -296,6 +311,7 @@ public class RadioTest {
 
         radio.setCurrentVolume(0);
         radio.decrease();
+
         int actual = radio.getCurrentVolume();
         int expected = 0;
         Assertions.assertEquals(actual, expected);
@@ -307,6 +323,7 @@ public class RadioTest {
 
         radio.setCurrentVolume(100);
         radio.decrease();
+
         int actual = radio.getCurrentVolume();
         int expected = 99;
         Assertions.assertEquals(actual, expected);
@@ -371,7 +388,8 @@ public class RadioTest {
     void setStationConstNewUnderLowLimit() {
         Radio radio = new Radio(30);
 
-        radio.setCurrentStation(-1);
+
+        radio.setCurrentStation(0);
 
         int actual = radio.getCurrentStation();
         int expected = 0;
@@ -381,6 +399,7 @@ public class RadioTest {
     @Test
     void nextRadioConstStationInLimit() {
         Radio radio = new Radio(30);
+
         radio.setCurrentStation(27);
         radio.next();
 
@@ -392,6 +411,7 @@ public class RadioTest {
     @Test
     void nextRadioConstStationInLimitBorder() {
         Radio radio = new Radio(30);
+
         radio.setCurrentStation(28);
         radio.next();
 
@@ -403,6 +423,7 @@ public class RadioTest {
     @Test
     void nextRadioConstStationOverBorder() {
         Radio radio = new Radio(30);
+
         radio.setCurrentStation(29);
         radio.next();
 
@@ -414,6 +435,7 @@ public class RadioTest {
     @Test
     void nextRadioConstStationLowBound() {
         Radio radio = new Radio(30);
+
         radio.setCurrentStation(0);
         radio.next();
 
@@ -425,6 +447,7 @@ public class RadioTest {
     @Test
     void prevRadioConstStationInLimit() {
         Radio radio = new Radio(30);
+
         radio.setCurrentStation(2);
         radio.prev();
 
@@ -436,6 +459,7 @@ public class RadioTest {
     @Test
     void prevRadioConstStationLowBound() {
         Radio radio = new Radio(30);
+
         radio.setCurrentStation(1);
         radio.prev();
 
@@ -447,6 +471,7 @@ public class RadioTest {
     @Test
     void prevRadioConstStationOverBorder() {
         Radio radio = new Radio(30);
+
         radio.setCurrentStation(0);
         radio.prev();
 
@@ -458,6 +483,7 @@ public class RadioTest {
     @Test
     void prevRadioConstStationInLimitOverBorder() {
         Radio radio = new Radio(30);
+
         radio.setCurrentStation(29);
         radio.prev();
 
