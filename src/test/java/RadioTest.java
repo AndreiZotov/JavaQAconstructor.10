@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
     @Test
-    void setStationInLimit() {
+    void setStatInMidiLimit() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(9);
@@ -12,9 +12,8 @@ public class RadioTest {
         int expected = 9;
         Assertions.assertEquals(actual, expected);
     }
-
     @Test
-    void setStationInLimitZero() {
+    void setStatInLimitZero() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(0);
@@ -25,7 +24,7 @@ public class RadioTest {
     }
 
     @Test
-    void setStationInMidLimit() {
+    void setStatInMidLimit() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(5);
@@ -36,7 +35,7 @@ public class RadioTest {
     }
 
     @Test
-    void setStationAfterAnother() {
+    void setStatAfterAnother() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(5);
@@ -70,7 +69,7 @@ public class RadioTest {
     }
 
     @Test
-    void setStationOverLimitAfterLimit() {
+    void setStatOverLimitAfterLimit() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(5);
@@ -82,7 +81,7 @@ public class RadioTest {
     }
 
     @Test
-    void nextRadioStationInLimit() {
+    void nextRadioStatInLimit() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(7);
@@ -94,7 +93,7 @@ public class RadioTest {
     }
 
     @Test
-    void nextRadioStationInLimitBorder() {
+    void nextRadioStatInLimitBorder() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(8);
@@ -106,7 +105,7 @@ public class RadioTest {
     }
 
     @Test
-    void nextRadioStationOverBorder() {
+    void nextRadioStatOverBorder() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(9);
@@ -118,7 +117,7 @@ public class RadioTest {
     }
 
     @Test
-    void nextRadioStationLowBound() {
+    void nextRadioStatLowBound() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(0);
@@ -130,7 +129,7 @@ public class RadioTest {
     }
 
     @Test
-    void prevRadioStationInLimit() {
+    void prevRadioStatInLimit() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(2);
@@ -154,7 +153,7 @@ public class RadioTest {
     }
 
     @Test
-    void prevRadioStationOverBorder() {
+    void prevRadioStatOverBorder() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(0);
@@ -166,7 +165,7 @@ public class RadioTest {
     }
 
     @Test
-    void prevRadioStationInLimitOverBorder() {
+    void prevRadioStatInLimitOverBorder() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(9);
@@ -330,8 +329,8 @@ public class RadioTest {
     }
 
     @Test
-    void setStationConstNewInLimit() {
-        Radio radio = new Radio(30);
+    void setStatConstNewInLimit() {
+        Radio radio = new Radio();
 
         radio.setCurrentStation(15);
 
@@ -342,7 +341,7 @@ public class RadioTest {
 
     @Test
     void setStationConstNewInLimitZero() {
-        Radio radio = new Radio(30);
+        Radio radio = new Radio();
 
         radio.setCurrentStation(0);
 
@@ -353,7 +352,7 @@ public class RadioTest {
 
     @Test
     void setStationConstNewUpLimit() {
-        Radio radio = new Radio(30);
+        Radio radio = new Radio();
 
         radio.setCurrentStation(30);
 
@@ -364,7 +363,7 @@ public class RadioTest {
 
     @Test
     void setStationConstNewUpperLimit() {
-        Radio radio = new Radio(30);
+        Radio radio = new Radio();
 
         radio.setCurrentStation(31);
 
@@ -374,8 +373,8 @@ public class RadioTest {
     }
 
     @Test
-    void setStationConstNewUnderHiLimit() {
-        Radio radio = new Radio(30);
+    void setStatConstNewUnderHiLimit() {
+        Radio radio = new Radio();
 
         radio.setCurrentStation(29);
 
@@ -386,7 +385,7 @@ public class RadioTest {
 
     @Test
     void setStationConstNewUnderLowLimit() {
-        Radio radio = new Radio(30);
+        Radio radio = new Radio();
 
 
         radio.setCurrentStation(0);
@@ -397,8 +396,8 @@ public class RadioTest {
     }
 
     @Test
-    void nextRadioConstStationInLimit() {
-        Radio radio = new Radio(30);
+    void nextRadioConstStatInLimit() {
+        Radio radio = new Radio();
 
         radio.setCurrentStation(27);
         radio.next();
@@ -409,8 +408,8 @@ public class RadioTest {
     }
 
     @Test
-    void nextRadioConstStationInLimitBorder() {
-        Radio radio = new Radio(30);
+    void nextRadioConstStatInLimitBorder() {
+        Radio radio = new Radio();
 
         radio.setCurrentStation(28);
         radio.next();
@@ -422,7 +421,7 @@ public class RadioTest {
 
     @Test
     void nextRadioConstStationOverBorder() {
-        Radio radio = new Radio(30);
+        Radio radio = new Radio();
 
         radio.setCurrentStation(29);
         radio.next();
@@ -433,8 +432,8 @@ public class RadioTest {
     }
 
     @Test
-    void nextRadioConstStationLowBound() {
-        Radio radio = new Radio(30);
+    void nextRadioConstStatLowBound() {
+        Radio radio = new Radio();
 
         radio.setCurrentStation(0);
         radio.next();
@@ -445,8 +444,8 @@ public class RadioTest {
     }
 
     @Test
-    void prevRadioConstStationInLimit() {
-        Radio radio = new Radio(30);
+    void prevRadioConstStatInLimit() {
+        Radio radio = new Radio();
 
         radio.setCurrentStation(2);
         radio.prev();
@@ -458,7 +457,7 @@ public class RadioTest {
 
     @Test
     void prevRadioConstStationLowBound() {
-        Radio radio = new Radio(30);
+        Radio radio = new Radio();
 
         radio.setCurrentStation(1);
         radio.prev();
@@ -469,8 +468,8 @@ public class RadioTest {
     }
 
     @Test
-    void prevRadioConstStationOverBorder() {
-        Radio radio = new Radio(30);
+    void prevRadioConstStatOverBorder() {
+        Radio radio = new Radio();
 
         radio.setCurrentStation(0);
         radio.prev();
@@ -481,8 +480,8 @@ public class RadioTest {
     }
 
     @Test
-    void prevRadioConstStationInLimitOverBorder() {
-        Radio radio = new Radio(30);
+    void prevRadioConstStatInLimitOverBorder() {
+        Radio radio = new Radio();
 
         radio.setCurrentStation(29);
         radio.prev();
