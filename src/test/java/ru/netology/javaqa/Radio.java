@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class Radio {
-    private int currentStation;
-    private int currentVolume;
-    private int maxStation;
+    private int currentStation = 0;
+    private int currentVolume = 50;
+    private int maxStation = 30;
 
 
     public void setCurrentStation(int currentStation) {
