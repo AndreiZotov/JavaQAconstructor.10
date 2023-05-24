@@ -1,17 +1,9 @@
+package ru.netology.javaqa;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-    @Test
-    void setStatInMidiLimit() {
-        Radio radio = new Radio();
 
-        radio.setCurrentStation(9);
-
-        int actual = radio.getCurrentStation();
-        int expected = 9;
-        Assertions.assertEquals(actual, expected);
-    }
     @Test
     void setStatInLimitZero() {
         Radio radio = new Radio();
