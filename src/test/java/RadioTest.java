@@ -1,4 +1,4 @@
-package ru.netology.javaqa;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -66,7 +66,7 @@ public class RadioTest {
         radio.setCurrentStation(10);
 
         int actual = radio.getCurrentStation();
-        int expected = 0;
+        int expected = 10;
         Assertions.assertEquals(actual, expected);
     }
 
@@ -78,7 +78,7 @@ public class RadioTest {
         radio.setCurrentStation(15);
 
         int actual = radio.getCurrentStation();
-        int expected = 5;
+        int expected = 15;
         Assertions.assertEquals(actual, expected);
     }
 
@@ -114,7 +114,7 @@ public class RadioTest {
         radio.next();
 
         int actual = radio.getCurrentStation();
-        int expected = 0;
+        int expected = 10;
         Assertions.assertEquals(actual, expected);
     }
 
@@ -162,7 +162,7 @@ public class RadioTest {
         radio.prev();
 
         int actual = radio.getCurrentStation();
-        int expected = 9;
+        int expected = 30;
         Assertions.assertEquals(actual, expected);
     }
 
@@ -218,7 +218,7 @@ public class RadioTest {
         radio.setCurrentVolume(-1);
 
         int actual = radio.getCurrentVolume();
-        int expected = 0;
+        int expected = 100;
         Assertions.assertEquals(actual, expected);
     }
 
@@ -359,7 +359,7 @@ public class RadioTest {
         radio.setCurrentStation(30);
 
         int actual = radio.getCurrentStation();
-        int expected = 0;
+        int expected = 30;
         Assertions.assertEquals(actual, expected);
     }
 
@@ -429,7 +429,7 @@ public class RadioTest {
         radio.next();
 
         int actual = radio.getCurrentStation();
-        int expected = 0;
+        int expected = 30;
         Assertions.assertEquals(actual, expected);
     }
 
@@ -477,7 +477,7 @@ public class RadioTest {
         radio.prev();
 
         int actual = radio.getCurrentStation();
-        int expected = 29;
+        int expected = 30;
         Assertions.assertEquals(actual, expected);
     }
 
@@ -490,6 +490,17 @@ public class RadioTest {
 
         int actual = radio.getCurrentStation();
         int expected = 28;
+        Assertions.assertEquals(actual, expected);
+    }
+    @Test
+    void nextRadioConstStatUnderBound() {
+        Radio radio = new Radio();
+
+        radio.setCurrentStation(30);
+        radio.next();
+
+        int actual = radio.getCurrentStation();
+        int expected = 0;
         Assertions.assertEquals(actual, expected);
     }
 

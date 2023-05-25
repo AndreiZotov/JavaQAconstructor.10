@@ -1,4 +1,3 @@
-package ru.netology.javaqa;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class Radio {
-    private int currentStation;
-    private int currentVolume;
-    private int maxStation;
+    private int currentStation = 0;
+    private int currentVolume = 100;
+    private int maxStation = 30;
 
 
     public void setCurrentStation(int currentStation) {
